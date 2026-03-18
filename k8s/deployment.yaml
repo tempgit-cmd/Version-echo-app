@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: version-echo
-          image: image: tempdocmd/version-echo:3
+          image: tempdocmd/version-echo:3
           ports:
             - containerPort: 1121
           env:
