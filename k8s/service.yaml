@@ -5,10 +5,11 @@ metadata:
   labels:
     app: version-echo
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: version-echo
   ports:
     - protocol: TCP
       port: 1121
       targetPort: 1121
+      nodePort: 30007
