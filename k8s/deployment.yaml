@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: version-echo
-          image: your-dockerhub-username/version-echo:latest
+          image: image: tempdocmd/version-echo:3
           ports:
             - containerPort: 1121
           env:
