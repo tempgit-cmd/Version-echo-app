@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: version-echo
+  labels:
+    app: version-echo
+spec:
+  type: ClusterIP
+  selector:
+    app: version-echo
+  ports:
+    - protocol: TCP
+      port: 1121
+      targetPort: 1121

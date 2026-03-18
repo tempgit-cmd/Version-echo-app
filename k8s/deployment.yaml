@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: version-echo
+  labels:
+    app: version-echo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: version-echo
+  template:
+    metadata:
+      labels:
+        app: version-echo
+    spec:
+      containers:
+        - name: version-echo
+          image: your-dockerhub-username/version-echo:latest
+          ports:
+            - containerPort: 1121
+          env:
+            - name: VERSION
+              value: "v1"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 1121
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 1121
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"

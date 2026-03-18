@@ -1,0 +1,18 @@
+{
+  "name": "version-echo-app",
+  "version": "1.0.0",
+  "description": "Minimal app for CI/CD + GitOps pipeline testing",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start:bg": "pm2 start ecosystem.config.js",
+    "stop:bg": "pm2 stop version-echo-app",
+    "restart:bg": "pm2 restart version-echo-app",
+    "logs": "pm2 logs version-echo-app",
+    "status": "pm2 status"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "prom-client": "^15.1.0"
+  }
+}
